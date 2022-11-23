@@ -1,25 +1,11 @@
 # README
+Build Facebook!
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Building a large portion of the core Facebook user functionality in this project.
 
-Things you may want to cover:
+We won’t be worrying about the Javascript-heavy front end stuff but you won’t need it to get a nice user experience.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
+Creating User to interact with each other and the ability to comment and post.
 
 * ...
 # odin-facebook
