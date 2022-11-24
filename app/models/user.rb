@@ -13,10 +13,10 @@ class User < ApplicationRecord
   has_many :friend_followees, foreign_key: :follower_id, class_name: "Friend"
   has_many :followees, through: :friend_followees, source: :followee
 
-  
 
-  def add_friend(email)
-    self.followees.build(email: email)
+
+  def add_friend(user)
+    self.followees << user
   end
 
 end
