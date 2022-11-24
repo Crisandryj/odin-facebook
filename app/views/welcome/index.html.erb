@@ -1,5 +1,5 @@
-<h2>Friends</h2>
+<h2>All Users</h2>
 
 <% @user.each do |u|%>
-<li><%= link_to u.email, method: current_user.add_friend(u) %></li>
+  <li><%= link_to u.email, method: current_user.request_friend %></li>
 <% end %>
