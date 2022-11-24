@@ -13,8 +13,8 @@ class User < ApplicationRecord
   has_many :friend_followees, foreign_key: :follower_id, class_name: "Friend"
   has_many :followees, through: :friend_followees, source: :followee, inverse_of: :followee
 
-  def friend_request(friend)
-    current_user.friend_follwees << friend
+  def add_friend()
+    current_user.friend_follows << friend
   end
 
 end
