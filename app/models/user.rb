@@ -15,19 +15,4 @@ class User < ApplicationRecord
 
 
 
-  def request_friend()
-  end
-
-  def accept_request
-
-  end
-
-  private
-
-  def send_notification
-  end
-
-  def add_friend
-  end
-
 end

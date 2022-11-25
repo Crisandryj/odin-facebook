@@ -1,0 +1,8 @@
+<% @user.each do |u|%>
+  <p> <%= u.email %> </p>
+  <%= form_with model: u do |form| %>
+    <%= form.hidden_field :followee, :value => u.email %>
+    <%= form.submit "Add Friend" %>
+<% end %>
+
+<% end %>
