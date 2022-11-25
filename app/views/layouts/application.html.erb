@@ -10,7 +10,11 @@
   </head>
 
   <body>
-    <nav><%= button_to "logout", destroy_user_session_path, method: :delete  %></nav>
+    <nav>
+      <%= button_to "Sign Up", user_session_path, method: :get  %>
+      <%= button_to "Sign In", destroy_user_session_path, method: :delete  %>
+      <%= button_to "logout", destroy_user_session_path, method: :delete  %>
+    </nav>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
