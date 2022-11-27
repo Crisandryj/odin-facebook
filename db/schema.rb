@@ -42,13 +42,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_27_201114) do
   end
 
   create_table "requests", force: :cascade do |t|
-    t.bigint "invitor_id_id"
-    t.bigint "inivtee_id_id"
+    t.bigint "invitor_id"
+    t.bigint "invitee_id"
     t.boolean "accepted"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["inivtee_id_id"], name: "index_requests_on_inivtee_id_id"
-    t.index ["invitor_id_id"], name: "index_requests_on_invitor_id_id"
+    t.index ["invitee_id"], name: "index_requests_on_invitee_id"
+    t.index ["invitor_id"], name: "index_requests_on_invitor_id"
   end
 
   create_table "users", force: :cascade do |t|
