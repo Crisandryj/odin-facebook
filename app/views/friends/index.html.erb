@@ -1,6 +1,6 @@
 <% @user.each do |u|%>
   <p> <%= u.email %> </p>
-  <%= form_with model: u do |form| %>
+  <%= form_with model: @friend do |form| %>
     <%= form.hidden_field :email, :value => u.email %>
     <%= form.submit "Add Friend" %>
 <% end %>

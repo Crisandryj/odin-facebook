@@ -10,6 +10,10 @@ class UsersController < ApplicationController
 
   def update
     raise params.inspect
+    @friend = Friend.update(friend_params)
   end
+
+  private
+
 
 end

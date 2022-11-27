@@ -8,10 +8,10 @@ class User < ApplicationRecord
   has_many :posts
 
   has_many :friend_follows, foreign_key: :followee_id, class_name: "Friend"
-  has_many :followers, through: :friend_follows, source: :follower
+  has_many :followers, through: :friend_follows
 
   has_many :friend_followees, foreign_key: :follower_id, class_name: "Friend"
-  has_many :followees, through: :friend_followees, source: :followee
+  has_many :followees, through: :friend_followees
 
 
 
