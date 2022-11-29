@@ -1,5 +1,11 @@
-<%= form_with model: @request, url: requests_new_path do |form| %>
 
-  <%= form.hidden_field :invitor_id, value: current_user.id %>
-  <%= form.submit "Add Friend"%>
+
+<% @users.each do |u|%>
+<%= u.email %>
+  <%= form_with model: @request do |form| %>
+    <%= form.hidden_field :invitor, value: current_user.id %>
+    <%= form.hidden_field :invitee, value: u.id %>
+    <%= form.hidden_field :accept, value: false %>
+    <%= form.submit "Request Friend"%>
+  <% end %>
 <% end %>
