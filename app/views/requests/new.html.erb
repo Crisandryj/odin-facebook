@@ -1,5 +1,5 @@
-<%= form_with model: @request do |form| %>
-  <%= form.%>
-  <%= form. %>
+<%= form_with model: @request, url: requests_new_path do |form| %>
+
+  <%= form.hidden_field :invitor_id, value: current_user.id %>
   <%= form.submit "Add Friend"%>
 <% end %>
