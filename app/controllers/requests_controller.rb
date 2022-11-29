@@ -10,7 +10,7 @@ class RequestsController < ApplicationController
   def create
     @request = Request.create(request_params)
     if @request.save
-      flash[:notice] = "Sent friend request!"
+      flash[:notice] = "Requested friend!"
     else
       render 'new'
     end
