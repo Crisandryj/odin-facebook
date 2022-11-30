@@ -1,5 +1,5 @@
 <% @requests.each do |r| %>
   <% if r.invitee.id == current_user.id %>
-  <%= r.invitor.id %>
+  <%= User.find(r.invitor.id).email %>
   <% end %>
 <% end %>
