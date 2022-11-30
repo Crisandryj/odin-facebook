@@ -4,16 +4,17 @@ class RequestsController < ApplicationController
   end
 
   def new
-    @request = Request.new(request_params)
     @users = User.all
+    @request = Request.new()
   end
 
   def create
-   raise params.inspect
+    @users = User.all
     @request = Request.create(request_params)
     if @request.save
       flash[:notice] = "Requested friend!"
     else
+      flash[:notice] = "Did not submit"
       render 'new'
     end
   end
@@ -25,7 +26,7 @@ class RequestsController < ApplicationController
   private
 
   def request_params
-    params.permit(:invitee_id,:invitor_id,:accept)
+    params.require(:request).permit(:invitee_id,:invitor_id,:accepted)
   end
 
 end
