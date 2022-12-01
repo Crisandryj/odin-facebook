@@ -13,6 +13,13 @@
     <nav>
       <%= button_to "SIGN IN", user_session_path %>
       <%= button_to "LOGOUT", destroy_user_session_path, method: :delete  %>
+      <% Request.all.each do |request|%>
+        <% if user_signed_in? %>
+          <% if current_user.id == request.invitee_id %>
+            <%= link_to "You have friend request", requests_path %>
+          <% end %>
+        <% end %>
+      <% end %>
     </nav>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
