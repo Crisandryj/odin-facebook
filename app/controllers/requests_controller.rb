@@ -19,6 +19,17 @@ class RequestsController < ApplicationController
     end
   end
 
+  def edit
+    @request = Request.find(params[:id])
+    redirect_to update
+  end
+
+  def update
+    @request = Request.find(params[:id])
+    @request.update(update_params)
+  end
+
+
   def destroy
   end
 
@@ -27,6 +38,10 @@ class RequestsController < ApplicationController
 
   def request_params
     params.require(:request).permit(:invitee_id,:invitor_id,:accepted)
+  end
+
+  def update_params
+    params.permit(:invitee_id,:invitor_id,:accepted)
   end
 
 end
