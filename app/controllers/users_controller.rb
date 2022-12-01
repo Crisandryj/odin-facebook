@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   def index
     @user = User.all
-
   end
 
   def show
@@ -9,8 +8,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    raise params.inspect
-    @friend = Friend.update(friend_params)
+
   end
 
   private

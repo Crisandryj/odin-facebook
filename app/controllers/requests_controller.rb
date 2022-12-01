@@ -12,9 +12,9 @@ class RequestsController < ApplicationController
     @users = User.all
     @request = Request.create(request_params)
     if @request.save
-      flash[:notice] = "Requested friend!"
+      flash.now[:notice] = "Requested friend!"
     else
-      flash[:notice] = "Did not submit"
+      flash.now[:notice] = "Did not submit"
       render 'new'
     end
   end
@@ -31,6 +31,9 @@ class RequestsController < ApplicationController
 
 
   def destroy
+    @request = Request.find(params[:id])
+    @request.destroy
+    flash[:notice] = "Declined request"
   end
 
 

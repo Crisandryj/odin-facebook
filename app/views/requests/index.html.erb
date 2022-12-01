@@ -1,7 +1,7 @@
 <% @requests.each do |r| %>
   <% if r.invitee.id == current_user.id  && r.accepted == false%>
     <%= User.find(r.invitor.id).email %>
-    <%= link_to "Accect Request", edit_request_path(r, accepted: true), method: :put %>
-    <%# <%= link_to "Decline Request",  %>
+    <%= button_to "Accect Request", edit_request_path(r, accepted: true), method: :put %>
+    <%= button_to "Decline Request", r, method: :delete %>
   <% end %>
 <% end %>
