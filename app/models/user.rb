@@ -18,4 +18,6 @@ class User < ApplicationRecord
 
   has_many :sent_requests, foreign_key: :invitor_id, class_name: 'Request'
   has_many :invitees, through: :sent_requests
+
+  has_many :likes
 end
