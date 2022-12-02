@@ -1,4 +1,5 @@
-<% @posts.each do |p| %>
-<p><%= User.find(p.user_id).email %></p>
-<li><%= p.body %></li>
+<% @posts.each do |post| %>
+  <p> user name </p>
+  <li><%= post.body %></li>
+  <p> <%= button_to "delete post", post, method: :delete %> </p>
 <% end %>
