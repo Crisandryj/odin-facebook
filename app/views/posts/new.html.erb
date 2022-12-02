@@ -1,9 +1,8 @@
-<%= form_with model: @request do |form| %>
-  <%= form.label :title %>
-  <%= form.text_feild :title %>
-
+<%= form_with model: @post do |form| %>
+  <%= form.hidden_field :user_id, value: current_user.id%>
   <%= form.label :body %>
-  <%= form.text_feild :body %>
+  <%= form.text_field :body %>
 
-  <%= form.submit "Request Friend"%>
+  <%= form.submit 'Post'%>
+
 <% end %>
