@@ -11,11 +11,17 @@ class PostsController < ApplicationController
     @post = Post.create(post_params)
     if @post.save
       flash.now[:notice] = 'posted'
+      redirect_to @post
     else
       flash[:notice] = @post.errors.full_messages
       render 'new'
     end
   end
+
+  def show
+    @post = Post.find(params[:id])
+  end
+
 
   def destroy
     @post = Post.find(params[:id])
