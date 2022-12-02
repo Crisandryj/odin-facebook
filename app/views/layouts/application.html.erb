@@ -13,7 +13,7 @@
     <nav>
       <%= button_to "SIGN IN", user_session_path %>
       <%= button_to "LOGOUT", destroy_user_session_path, method: :delete  %>
-      <p><%= current_user.email if user_signed_in? %> </p>
+      <p>Current_user: <%= current_user.email if user_signed_in? %> </p>
       <% Request.all.each do |request|%>
         <% if user_signed_in? %>
           <% if current_user.id == request.invitee_id %>

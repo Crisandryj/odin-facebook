@@ -1,0 +1,9 @@
+<%= form_with model: @request do |form| %>
+  <%= form.label :title %>
+  <%= form.text_feild :title %>
+
+  <%= form.label :body %>
+  <%= form.text_feild :body %>
+
+  <%= form.submit "Request Friend"%>
+<% end %>
