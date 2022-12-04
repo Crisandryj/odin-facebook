@@ -8,13 +8,13 @@ class CommentsController < ApplicationController
     if @comment.save
       flash[:notice] = 'created comment'
     else
-      render @comment
+      flash.now[:notice] = @comment.errors.full_messages
     end
   end
 
   private
 
   def comment_params
-    params.require(:comment).permit(:body)
+    params.require(:comment).permit(:body, :user_id, :post_id)
   end
 end
