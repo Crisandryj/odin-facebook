@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   resources :friends
   resources :requests
   resources :posts
+  resources :comments
 end

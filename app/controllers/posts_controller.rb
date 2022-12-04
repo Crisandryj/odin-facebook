@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   def index
+    @comment = Comment.new
     @posts = Post.all
   end
 

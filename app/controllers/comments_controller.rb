@@ -8,13 +8,13 @@ class CommentsController < ApplicationController
     if @comment.save
       flash[:notice] = 'created comment'
     else
-      render new
+      render @comment
     end
   end
 
   private
 
-  def comment_pararms
+  def comment_params
     params.require(:comment).permit(:body)
   end
 end
