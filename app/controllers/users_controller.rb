@@ -17,8 +17,6 @@ class UsersController < ApplicationController
   end
 
   private
-  def request_params
-    params.require(:request).permit(:invitee_id,:invitor_id,:accepted)
-  end
+
 
 end
