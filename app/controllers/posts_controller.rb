@@ -5,6 +5,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @post.comments.build
   end
 
   def create
@@ -31,6 +32,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:body, :user_id, comment_attributes: [:body])
+    params.require(:post).permit(:body, :user_id, comment_attributes: [:body,:user_id,:post_id])
   end
 end
