@@ -1,8 +1,9 @@
 <% @user.each do |u|%>
   <p> <%= u.email %> </p>
-  <%= form_with model: u do |form| %>
-    <%= form.hidden_field :email, :value => u.email %>
-    <%= form.submit "Add Friend" %>
-<% end %>
-
+  <%= form_for @request do |r| %>
+    <%= r.hidden_field :invitor_id, value: current_user.id%>
+    <%= r.hidden_field :invitee_id, value: u.id %>
+    <%= r.hidden_field :accepted, value: false %>
+    <%= r.submit "Request Friend"%>
+  <% end %>
 <% end %>

@@ -8,8 +8,7 @@ class LikesController < ApplicationController
     if @like.save
       flash.now[:notice] = "liked post"
     else
-      flash[:notice] = @like.errors.full_messages
-      render new
+      flash.now[:notice] = @like.errors.full_messages
     end
   end
 

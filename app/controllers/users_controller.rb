@@ -1,10 +1,15 @@
 class UsersController < ApplicationController
   def index
-    @user = User.all
+    @request = Request.new()
+    @user = User.all()
   end
 
   def show
     @user = User.find(params[:id])
+  end
+
+  def create
+
   end
 
   def update
@@ -12,6 +17,8 @@ class UsersController < ApplicationController
   end
 
   private
-
+  def request_params
+    params.require(:request).permit(:invitee_id,:invitor_id,:accepted)
+  end
 
 end
