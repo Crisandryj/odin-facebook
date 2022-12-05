@@ -1,3 +1,4 @@
+<% if current_user.posts || current_user.friends.posts %>
 <% @posts.each do |post| %>
   <p>
     <%= post.user.email %>
@@ -29,4 +30,5 @@
   <p>
     <%= button_to "like", controller: "likes", action: "create", post_id: post.id, user_id: current_user.id, like: true %>
   </p>
+<% end %>
 <% end %>
