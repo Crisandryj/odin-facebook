@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   def index
     @comment = Comment.new
-    @posts = Post.all
+    @posts = Post.all.order('created_at DESC')
   end
 
   def new
