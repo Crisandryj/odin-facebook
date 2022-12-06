@@ -1,0 +1,4 @@
+<%= image_tag @user.gravatar_url %>
+<% @user.posts.each do |post| %>
+<%= post.body %>
+<% end %>

@@ -20,4 +20,7 @@ class User < ApplicationRecord
   has_many :invitees, through: :sent_requests
 
   has_many :likes
+
+  include Gravtastic
+  gravtastic
 end

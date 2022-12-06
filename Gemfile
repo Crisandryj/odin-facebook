@@ -1,6 +1,9 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+#photos
+gem 'gravtastic'
+
 ruby "3.1.2"
 #debugging tool
 gem 'pry'
