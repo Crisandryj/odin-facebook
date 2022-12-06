@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-User.create(email: 'humblebragger@humblebrag.com', password: 'humblebaby')
+User.create(email: 'humblebragger@humblebrag.com', password: 'humblebaby', name:'Cris')
 User.create(email: 'humble@humblebrag.com', password: 'humblebaby')
 User.create(email: 'bragger@humblebrag.com', password: 'humblebaby')
 User.create(email: 'humhum@humblebrag.com', password: 'humblebaby')
@@ -13,3 +13,4 @@ User.create(email: 'bragger23@humblebrag.com', password: 'humblebaby')
 User.create(email: 'pimpc@humblebrag.com', password: 'humblebaby')
 User.create(email: 'gogogadget@humblebrag.com', password: 'humblebaby')
 User.create(email: 'funbun@humblebrag.com', password: 'humblebaby')
+name: nil, age: nil, birthday: nil, relationship: nil
