@@ -1,4 +1,11 @@
 <%= image_tag @user.gravatar_url %>
+
+<p>First Name:<%= @user.firstname %></p>
+<p>Last Name:<%= @user.lastname %></p>
+<p>Relationship Status:<%= @user.relationship %></p>
+<p>Age:<%= @user.age %></p>
+<p>Birthday:<%= @user.birthday %></p>
+
 <% @user.posts.each do |post| %>
 <%= post.body %>
 <% end %>
