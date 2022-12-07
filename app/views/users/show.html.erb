@@ -3,7 +3,7 @@
 <p>First Name:<%= @user.firstname %></p>
 <p>Last Name:<%= @user.lastname %></p>
 <p>Relationship Status:<%= @user.relationship %></p>
-<p>Age:<%= @user.age %></p>
+<p>Age:<%= ((Time.zone.now - @user.birthday.to_time) / 1.year.seconds).floor%></p>
 <p>Birthday:<%= @user.birthday %></p>
 
 <% @user.posts.each do |post| %>
