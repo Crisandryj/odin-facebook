@@ -24,7 +24,7 @@ class User < ApplicationRecord
   include Gravtastic
   gravtastic
 
-  devise :omniauthable, omniauth_providers: %i[facebook]
+
 
   def self.from_omniauth(auth)
     find_or_create_by(provider: auth.provider, uid: auth.uid) do |user|
@@ -37,7 +37,7 @@ class User < ApplicationRecord
       # user.skip_confirmation!
     end
   end
-  
+
   def self.new_with_session(params, session)
     super.tap do |user|
       if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
