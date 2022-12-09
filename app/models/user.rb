@@ -25,6 +25,12 @@ class User < ApplicationRecord
   include Gravtastic
   gravtastic
 
+  after_create :welcome_send
+
+  def welcome_send
+    WelcomeMailer.welcome_send(self).deliver
+  end
+
 
 
   def self.from_omniauth(auth)

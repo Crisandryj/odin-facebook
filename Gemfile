@@ -1,6 +1,8 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+gem "letter_opener", group: :development
+
 gem 'omniauth-rails_csrf_protection'
 
 #facebook login
