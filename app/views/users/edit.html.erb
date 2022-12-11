@@ -1,24 +1,26 @@
-<%= form_for @user do |user| %>
-  <div>
-  <%= user.label :firstname %>
-  <%= user.text_field :firstname %>
-  </div>
+<%= turbo_frame_tag @user do %>
+  <%= form_for @user do |user| %>
+    <div>
+    <%= user.label :firstname %>
+    <%= user.text_field :firstname %>
+    </div>
 
-  <div>
-  <%= user.label :lastname %>
-  <%= user.text_field :lastname %>
-  </div>
+    <div>
+    <%= user.label :lastname %>
+    <%= user.text_field :lastname %>
+    </div>
 
-  <div>
-  <%= user.label :relationship %>
-  <%= user.text_field :relationship %>
-  </div>
+    <div>
+    <%= user.label :relationship %>
+    <%= user.text_field :relationship %>
+    </div>
 
 
-  <div>
-  <%= user.label :birthday%>
-  <%= user.date_field :birthday %>
-  </div>
+    <div>
+    <%= user.label :birthday%>
+    <%= user.date_field :birthday %>
+    </div>
 
-  <%= user.submit %>
+    <%= user.submit %>
+  <% end %>
 <% end %>

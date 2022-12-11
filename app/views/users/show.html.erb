@@ -1,13 +1,34 @@
-<%= button_to "Edit", current_user %>
-<%= image_tag @user.gravatar_url %>
 
-<p>First Name:<%= @user.firstname %></p>
-<p>Last Name:<%= @user.lastname %></p>
-<p>Relationship Status:<%= @user.relationship %></p>
+<%= turbo_frame_tag @user do %>
+  <%= button_to "Edit Profile", edit_user_path(@user), method: 'get' %>
+  <%= image_tag @user.gravatar_url %>
+  <p>Age: <%= ((Time.zone.now - @user.birthday.to_time) / 1.year.seconds).floor unless @user.birthday.nil?%></p>
+  <%= form_for @user do |user| %>
 
-<p>Age:<%= ((Time.zone.now - @user.birthday.to_time) / 1.year.seconds).floor unless @user.birthday.nil?%></p>
-<p>Birthday:<%= @user.birthday %></p>
+    <div>
+    <%= user.label :firstname %>
+    <%= user.text_field :firstname,:readonly => true   %>
+    </div>
 
-<% @user.posts.each do |post| %>
-<%= post.body %>
+    <div>
+    <%= user.label :lastname %>
+    <%= user.text_field :lastname,:readonly => true %>
+    </div>
+
+    <div>
+    <%= user.label :relationship, :readonly => true  %>
+    <%= user.text_field :relationship, :readonly => true  %>
+    </div>
+
+
+    <div>
+    <%= user.label :birthday, :readonly => true %>
+    <%= user.date_field :birthday, :readonly => true  %>
+    </div>
+    <% end %>
 <% end %>
+<div>
+  <% @user.posts.each do |post| %>
+  <%= post.body %>
+  <% end %>
+</div>
