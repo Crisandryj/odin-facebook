@@ -1,9 +1,11 @@
+<%= button_to "Edit", current_user %>
 <%= image_tag @user.gravatar_url %>
 
 <p>First Name:<%= @user.firstname %></p>
 <p>Last Name:<%= @user.lastname %></p>
 <p>Relationship Status:<%= @user.relationship %></p>
-<p>Age:<%= ((Time.zone.now - @user.birthday.to_time) / 1.year.seconds).floor%></p>
+
+<p>Age:<%= ((Time.zone.now - @user.birthday.to_time) / 1.year.seconds).floor unless @user.birthday.nil?%></p>
 <p>Birthday:<%= @user.birthday %></p>
 
 <% @user.posts.each do |post| %>
