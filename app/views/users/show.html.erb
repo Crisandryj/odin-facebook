@@ -1,10 +1,9 @@
-
   <%= image_tag @user.gravatar_url %>
   <p>Age: <%= ((Time.zone.now - @user.birthday.to_time) / 1.year.seconds).floor unless @user.birthday.nil?%></p>
 
 <%= turbo_frame_tag @user do %>
 
-  <%= form_for @user do |user| %>
+  <%= form_with model: @user do |user| %>
 
     <div>
     <%= user.label :firstname %>

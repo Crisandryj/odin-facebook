@@ -1,5 +1,5 @@
 <%= turbo_frame_tag @user do %>
-  <%= form_for @user do |user| %>
+  <%= form_with model: @user do |user| %>
     <div>
     <%= user.label :firstname %>
     <%= user.text_field :firstname %>

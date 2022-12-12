@@ -14,9 +14,15 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update(user_params)
-    redirect_to @user
-  end
+      respond_to do |format|
+      if @user.update(user_params)
+          format.html { redirect_to @user }
+        else
+          format.html { render :edit, status: :unprocessable_entity }
+        end
+        end
+end
+
 
   private
 
