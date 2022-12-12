@@ -20,14 +20,14 @@ class UsersController < ApplicationController
         else
           format.html { render :edit, status: :unprocessable_entity }
         end
-        end
+      end
 end
 
 
   private
 
   def user_params
-    params.require(:user).permit(:firstname,:lastname,:birthday,:age)
+    params.require(:user).permit(:firstname,:lastname,:birthday,:age,:relationship)
 
   end
 
