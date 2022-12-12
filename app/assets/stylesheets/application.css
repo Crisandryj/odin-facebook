@@ -40,3 +40,8 @@
    background-color: #04AA6D;
    color: white;
  }
+
+ turbo-frame{
+   display: block;
+   border: 1px solid blue;
+ }

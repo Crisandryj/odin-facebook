@@ -1,8 +1,9 @@
 
-<%= turbo_frame_tag @user do %>
-  <%= button_to "Edit Profile", edit_user_path(@user), method: 'get' %>
   <%= image_tag @user.gravatar_url %>
   <p>Age: <%= ((Time.zone.now - @user.birthday.to_time) / 1.year.seconds).floor unless @user.birthday.nil?%></p>
+
+<%= turbo_frame_tag @user do %>
+
   <%= form_for @user do |user| %>
 
     <div>
@@ -25,8 +26,12 @@
     <%= user.label :birthday, :readonly => true %>
     <%= user.date_field :birthday, :readonly => true  %>
     </div>
+
     <% end %>
+<%= link_to "Edit Profile", edit_user_path(@user) %>
+
 <% end %>
+
 <div>
   <% @user.posts.each do |post| %>
   <%= post.body %>
