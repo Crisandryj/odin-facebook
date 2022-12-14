@@ -28,7 +28,7 @@
    <div>
         <% Request.all.each do |request|%>
           <% if user_signed_in? %>
-            <% if current_user.id == request.invitee_id %>
+            <% if current_user.id == request.invitee_id && request.accepted == false%>
               <%= link_to "You have friend request", requests_path %>
             <% end %>
           <% end %>

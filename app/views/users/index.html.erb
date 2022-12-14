@@ -1,4 +1,4 @@
-<% @user.each do |u|%>
+<% @user.each do |u|  %>
   <p> <%= u.email %> </p>
   <%= form_for @request do |r| %>
     <%= r.hidden_field :invitor_id, value: current_user.id%>

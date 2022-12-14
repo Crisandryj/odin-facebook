@@ -21,7 +21,6 @@ class RequestsController < ApplicationController
 
   def edit
     @request = Request.find(params[:id])
-    redirect_to update
   end
 
   def update
