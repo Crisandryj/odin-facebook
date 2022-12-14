@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'posts/new'
+  resources :users
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   # devise_scope :user do
@@ -9,9 +10,9 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root 'welcome#index'
-  
+
   resources :likes
-  resources :users
+
   resources :friends
   resources :requests
   resources :posts

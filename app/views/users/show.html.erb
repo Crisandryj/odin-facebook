@@ -1,8 +1,8 @@
 <%= image_tag @user.gravatar_url %>
 <div>Age: <%= ((Time.zone.now - @user.birthday.to_time) / 1.year.seconds).floor unless @user.birthday.nil?%></div>
 
-<%= turbo_frame_tag @user do %>
 
+<%= turbo_frame_tag @user do %>
   <%= form_with model: @user do |user| %>
 
     <div>
@@ -27,12 +27,11 @@
     </div>
 
     <% end %>
-<%= link_to "Edit Profile", edit_user_path(@user) %>
-
+  <%= link_to "Edit Profile", edit_user_path(@user) %>
 <% end %>
 
 <div>
   <% @user.posts.each do |post| %>
-  <%= post.body %>
+  <p><%= post.body %></p>
   <% end %>
 </div>
