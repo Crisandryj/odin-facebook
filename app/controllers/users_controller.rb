@@ -13,7 +13,6 @@ class UsersController < ApplicationController
   end
 
   def update
-
     @user = User.find(params[:id])
       respond_to do |format|
       if @user.update(user_params)
@@ -22,6 +21,8 @@ class UsersController < ApplicationController
           format.html { render :edit, status: :unprocessable_entity }
         end
       end
+
+
 end
 
 
