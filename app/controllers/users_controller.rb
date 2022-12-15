@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def index
     @request = Request.new()
-    @user = User.all()
+    @users = User.all()
   end
 
   def show
