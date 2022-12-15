@@ -26,6 +26,15 @@ class RequestsController < ApplicationController
   def update
     @request = Request.find(params[:id])
     @request.update(update_params)
+    if @request.save
+      if @request.accepted == true
+        invitor = User.find(@request.invitor_id)
+        invitee = User.find(@request.invitee_id)
+        invitor.followees << invitee
+      end
+      else
+        render new
+    end
   end
 
 
