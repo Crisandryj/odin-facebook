@@ -1,18 +1,21 @@
 <% @users.each do |u|  %>
-  <% current_user.followers.each do |follower| %>
-    <p>
-      <%= u.email %>
-    </p>
-    <%= form_for @request do |r| %>
-    <%= r.hidden_field :invitor_id, value: current_user.id%>
-    <%= r.hidden_field :invitee_id, value: u.id %>
-    <%= r.hidden_field :accepted, value: false %>
-    <!-- dont allow user to request themselves -->
-    <% if current_user.email != u.email%>
+
+  <p>
+    <%= u.email %>
+  </p>
+  <%= form_for @request do |r| %>
+  <%= r.hidden_field :invitor_id, value: current_user.id%>
+  <%= r.hidden_field :invitee_id, value: u.id %>
+  <%= r.hidden_field :accepted, value: false %>
+
+  <!-- dont allow user to request themselves or request someone already followed-->
+  <% current_user.followees.each do |f| %>
+    <% if f.email != u.email %>
       <%= r.submit "Request Friend"%>
+    <% else %>
+      <%= r.submit "Request Friend", :style => "display: none;" %>
     <% end %>
   <% end %>
-<% end %>
-<% end %>
 
-<%# show request friend for users that current user is not following %>
+<% end %>
+<% end %>
