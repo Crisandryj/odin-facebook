@@ -45,3 +45,8 @@
    display: block;
    border: 1px solid blue;
  }
+
+.container {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+}
