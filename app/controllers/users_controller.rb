@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def index
     @request = Request.new()
-    @users = User.all()
+    @users = User.all().order(:email)
   end
 
   def show
