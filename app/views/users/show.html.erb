@@ -1,36 +1,38 @@
 <%= image_tag @user.gravatar_url %>
-<div>Age: <%= ((Time.zone.now - @user.birthday.to_time) / 1.year.seconds).floor unless @user.birthday.nil?%></div>
+<div>Age:
+  <%= ((Time.zone.now - @user.birthday.to_time) / 1.year.seconds).floor unless @user.birthday.nil?%></div>
 
 <%= turbo_frame_tag @user do %>
-  <%= form_with model: @user do |user| %>
+<%= form_with model: @user do |user| %>
 
-    <div>
-    <%= user.label :firstname %>
-    <%= user.text_field :firstname,:readonly => true   %>
-    </div>
+<div>
+  <%= user.label :firstname %>
+  <%= user.text_field :firstname,:readonly => true %>
+</div>
 
-    <div>
-    <%= user.label :lastname %>
-    <%= user.text_field :lastname,:readonly => true %>
-    </div>
+<div>
+  <%= user.label :lastname %>
+  <%= user.text_field :lastname,:readonly => true %>
+</div>
 
-    <div>
-    <%= user.label :relationship, :readonly => true  %>
-    <%= user.text_field :relationship, :readonly => true  %>
-    </div>
+<div>
+  <%= user.label :relationship, :readonly => true %>
+  <%= user.text_field :relationship, :readonly => true %>
+</div>
 
+<div>
+  <%= user.label :birthday, :readonly => true %>
+  <%= user.date_field :birthday, :readonly => true %>
+</div>
 
-    <div>
-    <%= user.label :birthday, :readonly => true %>
-    <%= user.date_field :birthday, :readonly => true  %>
-    </div>
+<% end %>
 
-    <% end %>
-  <%= link_to "Edit Profile", edit_user_path(@user) %>
+<%= link_to "Edit Profile", edit_user_path(@user) if current_user.email == @user.email  %>
+
 <% end %>
 
 <div>
-  <% @user.posts.each do |post| %>
-  <p><%= post.body %></p>
-  <% end %>
+<% @user.posts.each do |post| %>
+<p><%= post.body %></p>
+<% end %>
 </div>
