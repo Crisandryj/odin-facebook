@@ -14,8 +14,13 @@
  *= require_self
  */
  /* Add a black background color to the top navigation */
+
+ textarea {
+    width: 200px;
+}
  #user_nav {
-   background-color: rgb(18, 108, 242);
+   display: flex;
+   justify-content:flex-end;
    overflow: hidden;
  }
 
@@ -41,10 +46,6 @@
    color: white;
  }
 
- turbo-frame{
-   display: block;
-   border: 1px solid blue;
- }
 
 .container {
   display: grid;

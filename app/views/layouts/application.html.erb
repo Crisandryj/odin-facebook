@@ -12,10 +12,10 @@
 
   <body>
 
-
+Signed in as <strong><%= current_user.email %></strong>!
     <div id="user_nav">
       <% if current_user %>
-          Signed in as <strong><%= current_user.email %></strong>!
+
           <%= button_to "View Posts", posts_path, method: :get %>
           <%= button_to "Users", users_path, method: :get %>
           <%= button_to "Profile", current_user, method: :get %>
