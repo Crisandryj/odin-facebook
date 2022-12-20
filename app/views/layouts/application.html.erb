@@ -11,8 +11,9 @@
 
 
   <body>
-
+<% if current_user %>
 Signed in as <strong><%= current_user.email %></strong>!
+<% end %>
     <div id="user_nav">
       <% if current_user %>
 

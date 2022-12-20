@@ -12,21 +12,28 @@
       <%= r.hidden_field :accepted, value: false %>
 
       <!-- check for followees before running condition-->
-      <%if current_user.followees.count > 0 %>
-      <!-- dont allow user to request themselves or request someone already followed-->
+
+      <% if current_user.followees.count > 0 %>
+        <!-- dont allow user to request themselves or request someone already followed-->
         <% current_user.followees.each do |f| %>
-          <% if f.email != u.email && u.email != current_user.email %>
-            <%= r.submit "Request Friend"%>
-            <% p "no" %>
+
+        <% if f.email != u.email && u.email != current_user.email %>
+          <%= r.submit "Request Friend"%>
             <% else %>
-              <% p "hi" %>
                 <%= r.submit "Request Friend", :style => "display: none;" %>
               <% end %>
             <% end %>
           <% else %>
             <% if u.email != current_user.email %>
+              <% current_user.sent_requests.each do |sent_request|%>
+
+                  <% if sent_request.invitee_id != u.id %>
               <%= r.submit "Request Friend"%>
             <% end %>
+            <% end %>
+              <% end %>
+
+
           <% end %>
 
         <% end %>
