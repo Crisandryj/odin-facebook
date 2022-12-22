@@ -7,15 +7,14 @@
     </div>
 
     <div>
-      <%= form_for @request do |r| %>
-      <%= r.hidden_field :invitor_id, value: current_user.id%>
-      <%= r.hidden_field :invitee_id, value: u.id %>
-      <%= r.hidden_field :accepted, value: false %>
+      <%= form_for @request do |request| %>
+      <%= request.hidden_field :invitor_id, value: current_user.id%>
+      <%= request.hidden_field :invitee_id, value: u.id %>
+      <%= request.hidden_field :accepted, value: false %>
       <% if u.id != current_user.id %>
         <%= r.submit "Request Friend" %>
       <% end %>
     <% end %>
   </div>
-
 <% end %>
 </div>
