@@ -1,5 +1,5 @@
 <div class='container'>
-  <% current_user.sent_requests.each do |sent| %>
+
   <% @users.each do |u|  %>
 
 
@@ -13,10 +13,11 @@
       <%= r.hidden_field :invitee_id, value: u.id %>
       <%= r.hidden_field :accepted, value: false %>
 
-        <%= r.submit "Request Friend" unless sent.invitee_id == u.id %>
+      <%= r.submit "Request Friend" %>
 
-    <% end %>
+
     </div>
+  
   <% end %>
 
 <% end %>
