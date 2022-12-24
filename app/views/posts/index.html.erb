@@ -15,7 +15,7 @@
             <div class="row">
                <div class="col-xl-6 mx-auto text-center">
                   <div class="section-title mb-100">
-                  <h4>latest blog</h4>
+                  <h4>POSTS</h4>
                   </div>
                </div>
             </div>
@@ -39,58 +39,40 @@
 
                               </ul>
                            </div>
+
                         </div>
                         <p> <%= post.body %>.</p>
-                        <a href="#" class="box_btn">read more</a>
+
+                          Comments:
+                          <div class="content">
+                            <% post.comments.each do |c| %>
+                            <div><%= c.body %></div>
+                            <% end %>
+                            <%= form_with model: @comment do |form| %>
+
+                                <%= form.hidden_field :user_id, value: current_user.id%>
+                                <%= form.hidden_field :post_id, value: post.id%>
+
+                                <%= form.label :body, "Comment:" %>
+                                <%= form.text_field :body %>
+
+                                <%= form.submit "Submit"%>
+                          <% end %>
+
+                        </div>
+                        
                      </div>
+                     <p>
+                       <%= button_to "delete post", post, method: :delete %>
+                     </p>
+                     <p>
+                       <%= button_to "like", controller: "likes", action: "create", post_id: post.id, user_id: current_user.id, like: true %>
+                     </p>
+                   <% end %>
+                   <% end %>
                   </div>
                </div>
-               <div class="col-lg-4 col-md-6">
-                  <!-- Single Blog -->
-                  <div class="single-blog">
-                     <div class="blog-img">
-                        <img src="http://infinityflamesoft.com/html/abal-preview/assets/img/blog/blog2.jpg" alt="">
-                        <div class="post-category">
-                           <a href="#">Creative</a>
-                        </div>
-                     </div>
-                     <div class="blog-content">
-                        <div class="blog-title">
-                           <h4><a href="#">Mobilies UX Treend</a></h4>
-                           <div class="meta">
-                              <ul>
-                                 <li>23 June 2018</li>
-                              </ul>
-                           </div>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque.</p>
-                        <a href="#" class="box_btn">read more</a>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-lg-4 col-md-6">
-                  <!-- Single Blog -->
-                  <div class="single-blog">
-                     <div class="blog-img">
-                        <img src="http://infinityflamesoft.com/html/abal-preview/assets/img/blog/blog3.jpg" alt="">
-                        <div class="post-category">
-                           <a href="#">Creative</a>
-                        </div>
-                     </div>
-                     <div class="blog-content">
-                        <div class="blog-title">
-                           <h4><a href="#">Mobilies UX Treend</a></h4>
-                           <div class="meta">
-                              <ul>
-                                 <li>31 July 2018</li>
-                              </ul>
-                           </div>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque.</p>
-                        <a href="#" class="box_btn">read more</a>
-                     </div>
-                  </div>
-               </div>
+
             </div>
          </div>
       </section>
@@ -100,43 +82,4 @@
 
 
 
-
-
-          <div class="container left">
-            <div class="content">
-            <div>/div>
-            <div></div>
-            <div>/div>
-
-            </div>
-
-
-          <div class="container right">
-            Comments:
-            <div class="content">
-              <% post.comments.each do |c| %>
-              <div><%= c.body %></div>
-              <% end %>
-              <%= form_with model: @comment do |form| %>
-
-                  <%= form.hidden_field :user_id, value: current_user.id%>
-                  <%= form.hidden_field :post_id, value: post.id%>
-
-                  <%= form.label :body, "Comment:" %>
-                  <%= form.text_field :body %>
-
-                  <%= form.submit "Submit"%>
-            <% end %>
-            </div>
-          </div>
-
-
-        <p>
-          <%= button_to "delete post", post, method: :delete %>
-        </p>
-        <p>
-          <%= button_to "like", controller: "likes", action: "create", post_id: post.id, user_id: current_user.id, like: true %>
-        </p>
-      <% end %>
-      <% end %>
       </div>
