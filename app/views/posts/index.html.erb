@@ -1,17 +1,19 @@
 
+<%= form_with model: @post do |post| %>
+    <%= post.hidden_field :user_id, value: current_user.id%>
+
+    <%= post.label :body, "Post:" %>
+    <%= post.text_field :body%>
+
+    <%= post.submit "Submit"%>
+<% end %>
 <section class="blog-me pt-100 pb-100" id="blog">
-  <%= form_with model: @post do |post| %>
-      <%= post.hidden_field :user_id, value: current_user.id%>
 
-      <%= post.label :body, "Post:" %>
-      <%= post.text_field :body %>
-
-      <%= post.submit "Submit"%>
-  <% end %>
-
+<!-- only user and user friends post-->
   <% if current_user.posts || current_user.friends.posts %>
 
          <div class="container">
+
             <div class="row">
                <div class="col-xl-6 mx-auto text-center">
                   <div class="section-title mb-100">
@@ -60,7 +62,7 @@
                           <% end %>
 
                         </div>
-                        
+
                      </div>
                      <p>
                        <%= button_to "delete post", post, method: :delete %>
