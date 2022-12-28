@@ -7,6 +7,7 @@ class CommentsController < ApplicationController
     @comment = Comment.create(comment_params)
     if @comment.save
       flash[:notice] = 'created comment'
+      redirect_to posts_path
     else
       flash.now[:notice] = @comment.errors.full_messages
     end
