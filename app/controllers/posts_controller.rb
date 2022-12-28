@@ -14,7 +14,7 @@ class PostsController < ApplicationController
     @post = Post.create(post_params)
     if @post.save
       flash.now[:notice] = 'posted'
-      redirect_to @post
+      redirect_to posts_path
     else
       flash[:notice] = @post.errors.full_messages
       render 'new'
