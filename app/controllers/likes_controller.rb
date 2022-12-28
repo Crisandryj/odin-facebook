@@ -7,6 +7,7 @@ class LikesController < ApplicationController
     @like = Like.create(like_params)
     if @like.save
       flash.now[:notice] = "liked post"
+      redirect_to posts_path
     else
       flash.now[:notice] = @like.errors.full_messages
     end
